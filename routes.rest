@@ -8,3 +8,7 @@ content-type: application/json
 {
     "item": "wash the dishes"
 }
+
+###
+
+GET http://localhost:8080/api-docs   HTTP/1.1
