@@ -5,7 +5,7 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "cse341-k2yj.onrender.com",
+  "host": "todolist-237p.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
