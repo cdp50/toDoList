@@ -13,7 +13,7 @@ controller.listItems = async(req, res) => {
 }
 
 // POST ITEM
-controller.addItem = async(req,red) => {
+controller.addItem = async(req, res) => {
     try {
         const item = await model.create(req.body);
         res.status(201).json(item);

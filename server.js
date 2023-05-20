@@ -32,4 +32,3 @@ mongoose
 
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/routes-swagger'));
-app.use('/contacts', require('./routes/contacts'));
