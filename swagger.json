@@ -15,14 +15,7 @@
       "get": {
         "description": "",
         "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "responses": {}
       }
     },
     "/": {
@@ -30,9 +23,7 @@
         "description": "",
         "parameters": [],
         "responses": {}
-      }
-    },
-    "/addItem": {
+      },
       "post": {
         "description": "",
         "parameters": [
@@ -51,8 +42,86 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema":
+              {
+                "type": "object",
+                "properties":{
+                  "firstName":{
+                    "example": "any"
+                  },
+                  "lastName":{
+                    "example": "any"
+                  },
+                  "email":{
+                    "example": "any"
+                  },
+                  "favoriteColor":{
+                    "example": "any"
+                  },
+                  "birthday":{
+                    "example": "any"
+                  }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"
