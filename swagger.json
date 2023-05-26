@@ -83,23 +83,11 @@
             "schema":
               {
                 "type": "object",
-                "properties":{
-                  "firstName":{
-                    "example": "any"
-                  },
-                  "lastName":{
-                    "example": "any"
-                  },
-                  "email":{
-                    "example": "any"
-                  },
-                  "favoriteColor":{
-                    "example": "any"
-                  },
-                  "birthday":{
+                "properties": {
+                  "item": {
                     "example": "any"
                   }
-              }
+                }
             }
           }
         ],

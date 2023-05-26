@@ -6,7 +6,8 @@ const itemSchema = Joi.object({
 
 const checkSchema = async(req,res,next) => {
     try {
-        const result = await itemSchema.validateAsync(req.body);
+        const item = req.body;
+        const result = await itemSchema.validateAsync(item);
         req.result = result
         next();
     } catch (err) {

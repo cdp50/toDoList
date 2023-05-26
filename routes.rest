@@ -7,7 +7,7 @@ GET http://localhost:8080/ HTTP/1.1
 
 
 ### GET ITEM
-GET http://localhost:8080/646f771bcd31301f3d48ca3b HTTP/1.1
+GET http://localhost:8080/646feeb35efcfa64b5fdf349 HTTP/1.1
 
 
 
@@ -16,17 +16,17 @@ POST  http://localhost:8080/   HTTP/1.1
 content-type: application/json
 
 {
-    "item": "swipe the floor"
+    "item": 345
 }
 
 
-### EDIT ITEM
-PUT http://localhost:8080/646f8e927c8d5abf6c010ba7 HTTP/1.1
+### EDIT ITEM the id has 24 characters
+PUT http://localhost:8080/646fe4f970e2b9d63f33c HTTP/1.1 
 content-type: application/json
 
 {
-    "item": "wash the ..."
+    "item": "wash the something"
 }
 
 ### DELETE ITEM
-DELETE http://localhost:8080/646f8e927c8d5abf6c010ba7 HTTP/1.1
+DELETE http://localhost:8080/646feeb35efcfa64b5f HTTP/1.1

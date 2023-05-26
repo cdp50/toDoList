@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const env = require('dotenv').config();
+const createError = require('http-errors');
 
 bodyParser.urlencoded({ extended: false });
 
@@ -32,3 +33,17 @@ mongoose
 
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/routes-swagger'));
+// 404 handler and pass to error handler
+app.use((req, res, next) => {next(createError(404, "Not Found"))});
+
+// Error Handler
+app.use((err, req,res,next)=>{
+  res.status(err.status || 500);
+  res.send({
+    error: {
+      status: err.status || 500,
+      message: err.message
+    }
+  })
+});
+
