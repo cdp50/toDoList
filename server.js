@@ -8,12 +8,6 @@ const createError = require('http-errors');
 bodyParser.urlencoded({ extended: false });
 
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
 
 const port = process.env.PORT;
 const host = process.env.HOST;
@@ -32,7 +26,7 @@ mongoose
   });
 
 app.use('/', require('./routes'));
-app.use('/', require('./routes/routes-swagger'));
+// app.use('/', require('./routes/routes-swagger'));
 // 404 handler and pass to error handler
 app.use((req, res, next) => {next(createError(404, "Not Found"))});
 
