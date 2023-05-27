@@ -58,6 +58,12 @@
         "responses": {
           "422": {
             "description": "Unprocessable Entity"
+          },
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -79,6 +85,12 @@
           },
           "500": {
             "description": "Internal Server Error"
+          },
+          "404": {
+            "description": "Product does not exist"
+          },
+          "400": {
+            "description": "Invalid Item Id"
           }
         }
       },
@@ -108,6 +120,15 @@
         "responses": {
           "422": {
             "description": "Unprocessable Entity"
+          },
+          "404": {
+            "description": "Product does not exist"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Invalid Item Id"
           }
         }
       },
@@ -127,6 +148,12 @@
           },
           "500": {
             "description": "Internal Server Error"
+          },
+          "404": {
+            "description": "Product does not exist"
+          },
+          "400": {
+            "description": "Invalid Item Id"
           }
         }
       }
