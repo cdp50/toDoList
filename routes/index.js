@@ -1,12 +1,7 @@
 const routes = require('express').Router();
 const controller = require('../controllers');
 const itemValidation = require('../utilities/validation_schema')
-// the video
-// https://www.youtube.com/watch?v=u9kxYilQ9l8
-// the homework instructions
-// https://cse341.netlify.app/lesson6/assignment
-// the reading content
-// https://cse341.netlify.app/lesson6/reading
+routes.use('/',require('./routes-swagger.js'));
 
 
 routes.get('/', controller.getAllItems);

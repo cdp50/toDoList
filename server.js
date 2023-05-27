@@ -31,7 +31,7 @@ mongoose
     console.log('Error connecting to MongoDB', err);
   });
 
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes'));
 app.use('/', require('./routes/routes-swagger'));
 // 404 handler and pass to error handler
 app.use((req, res, next) => {next(createError(404, "Not Found"))});
