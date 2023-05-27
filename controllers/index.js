@@ -52,7 +52,7 @@ controller.editItem = async(req,res,next) => {
         if(!item){
             throw createError(404, "Product does not exist");
         }else{
-            res.status(200).json(item);
+            res.status(204).json(item);
         }
     } catch (err) {
         // res.status(500).json({message: err.message})
