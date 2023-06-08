@@ -1,18 +1,21 @@
 ### GET SWAGGER
 GET http://localhost:8080/api-docs   HTTP/1.1
 
+### get login
+GET http://localhost:8080/login HTTP/1.1
+
 
 ### GET ALL ITEMS
-GET http://localhost:8080/ HTTP/1.1
+GET http://localhost:8080/items/ HTTP/1.1
 
 
 ### GET ITEM
-GET http://localhost:8080/64701232473609f0f1bddcc4 HTTP/1.1
+GET http://localhost:8080/items/646e25e482a9f9ecde19d90c HTTP/1.1
 
 
 
 ### POST NEW ITEM TO THE LIST
-POST  http://localhost:8080/   HTTP/1.1
+POST  http://localhost:8080/items   HTTP/1.1
 content-type: application/json
 
 {
@@ -21,7 +24,7 @@ content-type: application/json
 
 
 ### EDIT ITEM the id has 24 characters
-PUT http://localhost:8080/646fe4f970e2b9d63f33c HTTP/1.1 
+PUT http://localhost:8080/items/646fe4f970e2b9d63f33c HTTP/1.1 
 content-type: application/json
 
 {
@@ -29,4 +32,4 @@ content-type: application/json
 }
 
 ### DELETE ITEM
-DELETE http://localhost:8080/646feeb35efcfa64b5f HTTP/1.1
+DELETE http://localhost:8080/items/646feeb35efcfa64b5f HTTP/1.1
