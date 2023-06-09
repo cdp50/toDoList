@@ -11,6 +11,17 @@
     "https"
   ],
   "paths": {
+      "/": {
+          "get": {
+            "description": "",
+            "parameters": [],
+            "responses": {
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        },
     "/api-docs": {
       "get": {
         "description": "",
@@ -25,7 +36,7 @@
         }
       }
     },
-    "/": {
+    "/items/": {
       "get": {
         "description": "",
         "parameters": [],
@@ -68,7 +79,7 @@
         }
       }
     },
-    "/{id}": {
+    "/items/{id}": {
       "get": {
         "description": "",
         "parameters": [
