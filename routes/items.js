@@ -4,9 +4,9 @@ const itemValidation = require('../utilities/validation_schema');
 const { requiresAuth } = require('express-openid-connect');
 
 // get all items
-routes.get('/',requiresAuth(), (req, res, next) => {
+routes.get('/',requiresAuth(), (req, res) => {
     if (req.oidc.isAuthenticated()){
-        controller.getAllItems(req.res, next).catch(e =>{console.error(e)});
+        controller.getAllItems(req.res).catch(e =>{console.error(e)});
     } else {
         res.redirect('/login');
     }
