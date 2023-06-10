@@ -10,7 +10,6 @@ controller.getAllItems = async(req, res) => {
     try {
         const items = await model.find();
         console.log(items)
-        console.log(res.status(500))
         console.log(res)
         res.status(200).json(items);
     } catch (err) {
