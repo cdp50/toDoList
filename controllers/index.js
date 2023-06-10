@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const model = require('../models/index');
 const createError = require('http-errors');
+const bodyParser = require('body-parser');
 
 const controller = {}
 
@@ -9,6 +10,8 @@ controller.getAllItems = async(req, res) => {
     try {
         const items = await model.find();
         console.log(items)
+        console.log(res.status(500))
+        console.log(res)
         res.status(200).json(items);
     } catch (err) {
         res.status(500).json({message: err.message})
