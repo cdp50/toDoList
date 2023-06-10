@@ -5,16 +5,21 @@ const createError = require('http-errors');
 const controller = {}
 
 // GET ALL ITEMS
-controller.getAllItems = async(req, res) => {
+controller.getAllItems = async(req, res, next) => {
     try {
         const items = await model.find();
+        console.log(items)
         if(!items){
             throw createError(404, "NOT FOUND, Your to do list is empty");
         }else{
             res.status(200).json(items);
         }
     } catch (err) {
-        res.status(500).json({message: err.message})
+        if(err instanceof mongoose.CastError){
+            next(createError(400, `${mongoose.CastError}`))
+            return
+        }
+        next(err)
     }
 }
 

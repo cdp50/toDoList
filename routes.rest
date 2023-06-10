@@ -19,7 +19,7 @@ POST  http://localhost:8080/items   HTTP/1.1
 content-type: application/json
 
 {
-    "item": "do homework"
+    "item": "trying to make it work from the localhost"
 }
 
 
