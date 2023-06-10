@@ -12,9 +12,9 @@ routes.get('/',requiresAuth(), (req, res) => {
     }
     });
 // get item by id
-routes.get('/:id', requiresAuth(), (req, res) => {
+routes.get('/:id', requiresAuth(), (req, res, next) => {
     if (req.oidc.isAuthenticated()){
-        controller.getItem(req, res);
+        controller.getItem(req, res, next);
     } else {
         res.redirect('/login');
     }
@@ -28,17 +28,17 @@ routes.post('/', requiresAuth(), itemValidation.checkSchema, (req, res) => {
     }
 });
 // edit item
-routes.put('/:id',requiresAuth(), itemValidation.checkSchema, (req, res) => {
+routes.put('/:id',requiresAuth(), itemValidation.checkSchema, (req, res, next) => {
     if(req.oidc.isAuthenticated()) {
-        controller.editItem(req, res);
+        controller.editItem(req, res, next);
     } else {
         res.redirect('/login');
     }
 });
 // delete item
-routes.delete('/:id', requiresAuth(), (req, res) => {
+routes.delete('/:id', requiresAuth(), (req, res, next) => {
     if(req.oidc.isAuthenticated()) {
-        controller.deleteItem(req, res);
+        controller.deleteItem(req, res, next);
     } else{
         res.redirect('/login');
     }
