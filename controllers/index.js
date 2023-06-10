@@ -9,11 +9,7 @@ controller.getAllItems = async(req, res) => {
     try {
         const items = await model.find();
         console.log(items)
-        if(!items){
-            throw createError(404, "NOT FOUND, Your to do list is empty");
-        }else{
-            res.status(200).json(items);
-        }
+        res.status(200).json(items);
     } catch (err) {
         res.status(500).json({message: err.message})
     }
