@@ -5,7 +5,7 @@ const createError = require('http-errors');
 const controller = {}
 
 // GET ALL ITEMS
-controller.getAllItems = async(req, res, next) => {
+controller.getAllItems = async(req, res) => {
     try {
         const items = await model.find();
         console.log(items)
@@ -15,11 +15,7 @@ controller.getAllItems = async(req, res, next) => {
             res.status(200).json(items);
         }
     } catch (err) {
-        if(err instanceof mongoose.CastError){
-            next(createError(400, `${mongoose.CastError}`))
-            return
-        }
-        next(err)
+        res.status(500).json({message: err.message})
     }
 }
 
