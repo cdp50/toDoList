@@ -245,7 +245,8 @@
             "description": "Authentication is required for this route"
           }
         }
-      },
+      }},
+      "/users/{id}": {
       "delete": {
         "description": "",
         "parameters": [
