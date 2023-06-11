@@ -20,7 +20,9 @@ controller.addUser = async(req, res) => {
 controller.deleteUser = async(req,res,next) => {
     try {
         const {id} = req.params;
+        console.log(req.params.id)
         const user = await model.findByIdAndDelete(id);
+        console.log(user)
         if(!user){
             throw createError(404, "User does not exist");
         }else{
@@ -33,7 +35,7 @@ controller.deleteUser = async(req,res,next) => {
         }
         next(err)
     }
-}
+};
 
 // no necesito get solo necesito put y delete. la idea es hacer el 
 // que el correo del usuario sea un field en "item" y que cuando llame a 
