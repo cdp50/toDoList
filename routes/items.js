@@ -5,13 +5,18 @@ const { requiresAuth } = require('express-openid-connect');
 
 
 // get all items
-routes.get('/', controller.getAllItems);
-
+routes.get('/',requiresAuth(), (req, res) => {
+    if (req.oidc.isAuthenticated()){
+        controller.getAllItems(req, res) //.catch(e =>{console.error(e)});
+    } else {
+        res.redirect('/login');
+    }
+    });
 // get item by id
 routes.get('/:id', requiresAuth(), (req, res, next) => {
     if (req.oidc.isAuthenticated()){
         controller.getItem(req, res, next);
-        console.log(JSON.stringify(req.oidc.user)); // trying to find out what info of the user do I get
+        console.log(JSON.stringify(req.oidc.user)); // trying to find out what info of the user do I
     } else {
         res.redirect('/login');
     }

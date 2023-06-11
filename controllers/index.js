@@ -9,8 +9,6 @@ const controller = {}
 controller.getAllItems = async(req, res) => {
     try {
         const items = await model.find();
-        console.log(items)
-        console.log(res)
         res.status(200).json(items);
     } catch (err) {
         res.status(500).json({message: err.message})
