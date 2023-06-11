@@ -20,7 +20,7 @@ controller.addUser = async(req, res) => {
 controller.deleteUser = async(req,res,next) => {
     try {
         const {id} = req.params;
-        console.log(req.params.id)
+        console.log(req.params)
         const user = await model.findByIdAndDelete(id);
         console.log(user)
         if(!user){
