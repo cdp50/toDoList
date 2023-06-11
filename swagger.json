@@ -145,13 +145,31 @@
             "name": "body",
             "in": "body",
             "schema":
-              {
-                "type": "object",
-                "properties": {
-                  "item": {
-                    "example": "any"
-                  }
+            {
+              "type": "object",
+              "properties": {
+                "item": {
+                  "example": "any"
+                },
+                "check": {
+                  "example": false
+                },
+                "title": {
+                  "example": "any"
+                },
+                "deadline": {
+                  "example": "08/03/2023"
+                },
+                "place": {
+                  "example": "Rexburg"
+                },
+                "priority": {
+                  "example": false
+                },
+                "reminder": {
+                  "example": false
                 }
+              }
             }
           }
         ],
