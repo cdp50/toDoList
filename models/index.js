@@ -30,9 +30,6 @@ const itemSchema = new mongoose.Schema(
             required: false
         }
 
-    },
-    {
-        timestamps: false,
     }
 );
 
@@ -46,9 +43,6 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true
         }
-    },
-    {
-        timestamps: false,
     }
 );
 
