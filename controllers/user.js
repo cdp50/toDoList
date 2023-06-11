@@ -20,7 +20,11 @@ controller.addUser = async(req, res) => {
 controller.deleteUser = async(req,res,next) => {
     try {
         const {id} = req.params;
+        console.log(id)
+        console.log(req.params)
+        console.log(req.params.id)
         const user = await model.findByIdAndDelete(id);
+        console.log(user)
         if(!user){
             throw createError(404, "User does not exist");
         }else{
