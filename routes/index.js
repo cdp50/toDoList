@@ -23,6 +23,7 @@ routes.get('/', (req, res) => {
 
 routes.use('/',require('./routes-swagger.js'));
 routes.use('/items', require('./items.js'))
+routes.use('/users', require('./user.js'))
 
 
 module.exports = routes;

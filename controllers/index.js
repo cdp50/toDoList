@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const model = require('../models/index');
+const itemModel = require('../models/index');
+const model = itemModel.item; 
 const createError = require('http-errors');
-const bodyParser = require('body-parser');
 
 const controller = {}
 
@@ -71,7 +71,7 @@ controller.deleteItem = async(req,res,next) => {
         const {id} = req.params;
         const item = await model.findByIdAndDelete(id);
         if(!item){
-            throw createError(404, "Product does not exist");
+            throw createError(404, "Item does not exist");
         }else{
             res.status(200).json(item);
         }

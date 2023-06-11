@@ -10,7 +10,7 @@ const itemSchema = Joi.object({
     reminder: Joi.boolean()
 })
 
-const checkSchema = async(req,res,next) => {
+const checkItemSchema = async(req,res,next) => {
     try {
         const item = req.body;
         const result = await itemSchema.validateAsync(item);
@@ -23,4 +23,22 @@ const checkSchema = async(req,res,next) => {
     }
 }
 
-module.exports = {checkSchema};
+const userSchema = Joi.object({
+    name: Joi.string().required(),
+    email: Joi.string().required()
+});
+
+const checkUserSchema = async(req,res,next) => {
+    try {
+        const user = req.body;
+        const result = await userSchema.validateAsync(user);
+        req.result = result;
+        next();
+    } catch (err) {
+        if(err.isJoi === true) {
+            return res.status(422).json({message: err.message});
+        }
+    }
+}
+
+module.exports = {checkItemSchema, checkUserSchema};
