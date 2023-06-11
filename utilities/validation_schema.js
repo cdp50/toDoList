@@ -1,7 +1,13 @@
 const Joi = require('@hapi/joi')
 
 const itemSchema = Joi.object({
-    item: Joi.string().required().min(1)
+    item: Joi.string().required().min(1),
+    check: Joi.boolean().required(),
+    title: Joi.string(),
+    deadline: Joi.string(),
+    place: Joi.string(),
+    priority: Joi.boolean(),
+    reminder: Joi.boolean()
 })
 
 const checkSchema = async(req,res,next) => {
