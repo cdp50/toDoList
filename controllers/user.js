@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const userModel = require('../models/index');
 const model = userModel.user;
 const createError = require('http-errors');
-const controller = require('.');
 
 const controller = {}
 
