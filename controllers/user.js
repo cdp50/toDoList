@@ -9,6 +9,7 @@ controller.addUser = async(req, res) => {
     try {
         console.log(req.result)
         const user = await model.create(req.result);
+        console.log(user)
         res.status(201).json(user)
     } catch (err) {
         res.status(500).json({message: err.message});
