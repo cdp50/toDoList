@@ -5,7 +5,7 @@ const userValidation = require('../utilities/validation_schema');
 
 
 routes.post('/', userValidation.checkUserSchema, controller.addUser);
-routes.delete('/', controller.deleteUser);
+routes.delete('/:id', controller.deleteUser);
 
 
 module.exports = routes;
