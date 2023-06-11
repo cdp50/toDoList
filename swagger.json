@@ -11,29 +11,22 @@
     "https"
   ],
   "paths": {
-      "/": {
-          "get": {
-            "description": "",
-            "parameters": [],
-            "responses": {
-              "200": {
-                "description": "OK"
-              }
-            }
-          }
-        },
-    "/api-docs": {
+    "/": {
       "get": {
         "description": "",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
       }
     },
     "/items/": {
@@ -46,9 +39,6 @@
           },
           "500": {
             "description": "Internal Server Error"
-          },
-          "401": {
-            "description": "Authentication is required for this route"
           }
         }
       },
@@ -185,6 +175,71 @@
           },
           "400": {
             "description": "Invalid Item Id"
+          },
+          "401": {
+            "description": "Authentication is required for this route"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "404": {
+            "description": "Product does not exist"
+          },
+          "400": {
+            "description": "Invalid Item Id"
+          },
+          "401": {
+            "description": "Authentication is required for this route"
+          }
+        }
+      }
+    },
+    "/users/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": 
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Claudio Parker"
+                },
+                "email": {
+                  "example": "claudio@parker.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           },
           "401": {
             "description": "Authentication is required for this route"
