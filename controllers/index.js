@@ -38,10 +38,10 @@ controller.getReminder = async(req, res, next) => {
 // POST REMINDER
 controller.addReminder = async(req, res) => {
     try {
-        const{ name } = req.oidc.user.name;
-        const{ email } = req.oidc.user.email;
-        console.log(`this is the name from OAuth${name}`)
-        console.log(`this is the email from OAuth${email}`)
+        const{ name } = req.oidc.user;
+        const{ email } = req.oidc.user;
+        console.log(`this is the name from OAuth ${name}`)
+        console.log(`this is the email from OAuth ${email}`)
         req.result.user = {name, email}
         console.log(`this is what I'm trying to send to mongo${req.result}`)
         const reminder = await model.create(req.result);
