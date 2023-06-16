@@ -30,7 +30,7 @@ const reminderSchema = new mongoose.Schema(
             required: false
         },
         user: {
-            required: false
+    
         }
 
     }
