@@ -1,47 +1,47 @@
 const routes = require('express').Router();
 const controller = require('../controllers');
-const itemValidation = require('../utilities/validation_schema');
+const reminderValidation = require('../utilities/validation_schema');
 
 const { requiresAuth } = require('express-openid-connect');
 
 
-// get all items
+// get all reminders
 routes.get('/',requiresAuth(), (req, res) => {
     if (req.oidc.isAuthenticated()){
-        controller.getAllItems(req, res) 
+        controller.getAllReminders(req, res) 
     } else {
         res.redirect('/login');
     }
     });
-// get item by id
+// get reminder by id
 routes.get('/:id', requiresAuth(), (req, res, next) => {
     if (req.oidc.isAuthenticated()){
-        controller.getItem(req, res, next);
+        controller.getReminder(req, res, next);
         console.log(JSON.stringify(req.oidc.user)); 
     } else {
         res.redirect('/login');
     }
 });
-// post new item
-routes.post('/', requiresAuth(), itemValidation.checkItemSchema, (req, res) => {
+// post new reminder
+routes.post('/', requiresAuth(), reminderValidation.checkReminderSchema, (req, res) => {
     if(req.oidc.isAuthenticated()) {
-        controller.addItem(req, res);
+        controller.addReminder(req, res);
     } else {
         res.redirect('/login');
     }
 });
-// edit item
-routes.put('/:id',requiresAuth(), itemValidation.checkItemSchema, (req, res, next) => {
+// edit reminder
+routes.put('/:id',requiresAuth(), reminderValidation.checkReminderSchema, (req, res, next) => {
     if(req.oidc.isAuthenticated()) {
-        controller.editItem(req, res, next);
+        controller.editReminder(req, res, next);
     } else {
         res.redirect('/login');
     }
 });
-// delete item
+// delete reminder
 routes.delete('/:id', requiresAuth(), (req, res, next) => {
     if(req.oidc.isAuthenticated()) {
-        controller.deleteItem(req, res, next);
+        controller.deleteReminder(req, res, next);
     } else{
         res.redirect('/login');
     }

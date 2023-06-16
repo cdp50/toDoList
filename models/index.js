@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const itemSchema = new mongoose.Schema(
+const reminderSchema = new mongoose.Schema(
     {
-        item:{
+        reminder:{
             type: String,
-            required: [true, "The item needs content to be added"]
+            required: [true, "The reminder needs content to be added"]
         },
         check:{
             type: Boolean,
@@ -46,6 +46,6 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-const item = mongoose.model('item', itemSchema);
+const reminder = mongoose.model('reminder', reminderSchema);
 const user = mongoose.model('user', userSchema);
-module.exports = {item, user};
+module.exports = {reminder, user};

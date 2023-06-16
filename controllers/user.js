@@ -5,6 +5,7 @@ const createError = require('http-errors');
 
 const controller = {}
 
+// POST USER
 controller.addUser = async(req, res) => {
     try {
         console.log(req.result)
@@ -16,7 +17,7 @@ controller.addUser = async(req, res) => {
     }
 }
 
-// DELETE ITEM
+// DELETE USER
 controller.deleteUser = async(req,res,next) => {
     try {
         const {id} = req.params;

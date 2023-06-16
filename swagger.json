@@ -29,7 +29,7 @@
         "responses": {}
       }
     },
-    "/items/": {
+    "/reminders/": {
       "get": {
         "description": "",
         "parameters": [],
@@ -52,7 +52,7 @@
             {
               "type": "object",
               "properties": {
-                "item": {
+                "reminder": {
                   "example": "any"
                 },
                 "check": {
@@ -93,7 +93,7 @@
         }
       }
     },
-    "/items/{id}": {
+    "/reminders/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -115,7 +115,7 @@
             "description": "Product does not exist"
           },
           "400": {
-            "description": "Invalid Item Id"
+            "description": "Invalid reminder Id"
           },
           "401": {
             "description": "Authentication is required for this route"
@@ -138,7 +138,7 @@
             {
               "type": "object",
               "properties": {
-                "item": {
+                "reminder": {
                   "example": "any"
                 },
                 "check": {
@@ -174,7 +174,7 @@
             "description": "No Content"
           },
           "400": {
-            "description": "Invalid Item Id"
+            "description": "Invalid reminder Id"
           },
           "401": {
             "description": "Authentication is required for this route"
@@ -202,7 +202,7 @@
             "description": "Product does not exist"
           },
           "400": {
-            "description": "Invalid Item Id"
+            "description": "Invalid reminder Id"
           },
           "401": {
             "description": "Authentication is required for this route"
@@ -268,7 +268,7 @@
             "description": "Product does not exist"
           },
           "400": {
-            "description": "Invalid Item Id"
+            "description": "Invalid reminder Id"
           },
           "401": {
             "description": "Authentication is required for this route"

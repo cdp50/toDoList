@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi')
 
-const itemSchema = Joi.object({
-    item: Joi.string().required().min(1),
+const reminderSchema = Joi.object({
+    reminder: Joi.string().required().min(1),
     check: Joi.boolean().required(),
     title: Joi.string(),
     deadline: Joi.string(),
@@ -10,10 +10,10 @@ const itemSchema = Joi.object({
     reminder: Joi.boolean()
 })
 
-const checkItemSchema = async(req,res,next) => {
+const checkReminderSchema = async(req,res,next) => {
     try {
-        const item = req.body;
-        const result = await itemSchema.validateAsync(item);
+        const reminder = req.body;
+        const result = await reminderSchema.validateAsync(reminder);
         req.result = result
         next();
     } catch (err) {
@@ -41,4 +41,4 @@ const checkUserSchema = async(req,res,next) => {
     }
 }
 
-module.exports = {checkItemSchema, checkUserSchema};
+module.exports = {checkReminderSchema, checkUserSchema};

@@ -5,31 +5,31 @@ GET http://localhost:8080/api-docs   HTTP/1.1
 GET http://localhost:8080/login HTTP/1.1
 
 
-### GET ALL ITEMS
-GET http://localhost:8080/items/ HTTP/1.1
+### GET ALL REMINDERS
+GET http://localhost:8080/reminders/ HTTP/1.1
 
 
-### GET ITEM
-GET http://localhost:8080/items/646e25e482a9f9ecde19d90c HTTP/1.1
+### GET REMINDER
+GET http://localhost:8080/reminders/646e25e482a9f9ecde19d90c HTTP/1.1
 
 
 
-### POST NEW ITEM TO THE LIST
-POST  http://localhost:8080/items   HTTP/1.1
+### POST NEW REMINDER
+POST  http://localhost:8080/reminders   HTTP/1.1
 content-type: application/json
 
 {
-    "item": "trying to make it work from the localhost"
+    "reminder": "trying to make it work from the localhost"
 }
 
 
-### EDIT ITEM the id has 24 characters
-PUT http://localhost:8080/items/646fe4f970e2b9d63f33c HTTP/1.1 
+### EDIT REMINDER 
+PUT http://localhost:8080/reminders/646fe4f970e2b9d63f33c HTTP/1.1 
 content-type: application/json
 
 {
-    "item": "wash the something"
+    "reminder": "wash the something"
 }
 
-### DELETE ITEM
-DELETE http://localhost:8080/items/646feeb35efcfa64b5f HTTP/1.1
+### DELETE REMINDER
+DELETE http://localhost:8080/reminders/646feeb35efcfa64b5f HTTP/1.1

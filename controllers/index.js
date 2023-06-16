@@ -1,84 +1,84 @@
 const mongoose = require('mongoose');
-const itemModel = require('../models/index');
-const model = itemModel.item; 
+const reminderModel = require('../models/index');
+const model = reminderModel.reminder; 
 const createError = require('http-errors');
 
 const controller = {}
 
-// GET ALL ITEMS
-controller.getAllItems = async(req, res) => {
+// GET ALL reminderS
+controller.getAllReminders = async(req, res) => {
     try {
-        const items = await model.find();
-        res.status(200).json(items);
+        const reminders = await model.find();
+        res.status(200).json(reminders);
     } catch (err) {
         res.status(500).json({message: err.message})
     }
 }
 
-// GET ONE ITEM
-controller.getItem = async(req, res, next) => {
+// GET ONE REMINDER
+controller.getReminder = async(req, res, next) => {
     try {
         const {id} = req.params
-        const item = await model.findById(id);
-        if(!item){
+        const reminder = await model.findById(id);
+        if(!reminder){
             throw createError(404, "Product does not exist");
         }else{
-            res.status(200).json(item);
+            res.status(200).json(reminder);
         }
     } catch (err) {
         // res.status(500).json({message: err.message})
         if(err instanceof mongoose.CastError){
-            next(createError(400, "Invalid Item Id"))
+            next(createError(400, "Invalid Reminder Id"))
             return
         }
         next(err)
     }
 }
 
-// POST ITEM
-controller.addItem = async(req, res) => {
+// POST REMINDER
+controller.addReminder = async(req, res) => {
     try {
-        const item = await model.create(req.result);
-        res.status(201).json(item);
+        const reminder = await model.create(req.result);
+        res.status(201).json(reminder);
     } catch (err) {
         res.status(500).json({message: err.message});
     }
 }
 
-// PUT ITEM
-controller.editItem = async(req,res,next) => {
+// PUT REMINDER
+controller.editReminder = async(req,res,next) => {
     try {
         const {id} = req.params;
-        const item = await model.findByIdAndUpdate(id,req.result);
-        if(!item){
+        const reminder = await model.findByIdAndUpdate(id,req.result);
+        if(!reminder){
             throw createError(404, "Product does not exist");
         }else{
-            res.status(204).json(item);
+            res.status(204).json(reminder);
         }
     } catch (err) {
         // res.status(500).json({message: err.message})
         if(err instanceof mongoose.CastError){
-            next(createError(400, "Invalid Item Id"))
+            next(createError(400, "Invalid Reminder Id"))
             return
         }
         next(err)
     }
 }
 
-// DELETE ITEM
-controller.deleteItem = async(req,res,next) => {
+// DELETE REMINDER
+controller.deleteReminder = async(req,res,next) => {
     try {
         const {id} = req.params;
-        const item = await model.findByIdAndDelete(id);
-        if(!item){
-            throw createError(404, "Item does not exist");
+        const reminder = await model.findByIdAndDelete(id);
+        if(!reminder){
+            throw createError(404, "Reminder does not exist");
         }else{
-            res.status(200).json(item);
+            res.status(200).json(reminder);
         }
     } catch (err) {
         // res.status(500).json({message: err.message})
         if(err instanceof mongoose.CastError){
-            next(createError(400, "Invalid Item Id"))
+            next(createError(400, "Invalid Reminder Id"))
             return
         }
         next(err)
