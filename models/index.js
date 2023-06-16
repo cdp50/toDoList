@@ -25,7 +25,7 @@ const reminderSchema = new mongoose.Schema(
             type: Boolean,
             required: false
         },
-        reminder: {
+        friend: {
             type: Boolean,
             required: false
         }
@@ -46,6 +46,34 @@ const userSchema = new mongoose.Schema(
     }
 );
 
+const themeSchema = new mongoose.Schema(
+    {
+        color: {
+            type: String,
+            required: true
+        }, 
+        font: {
+            type: String,
+            required: true
+        }
+    }
+);
+
+const friendSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true
+        }, 
+        email: {
+            type: String,
+            required: true
+        }
+    }
+);
+
 const reminder = mongoose.model('reminder', reminderSchema);
 const user = mongoose.model('user', userSchema);
-module.exports = {reminder, user};
+const theme = mongoose.model('theme', themeSchema);
+const friend = mongoose.model('friend', friendSchema);
+module.exports = {reminder, user, theme, friend};
