@@ -13,6 +13,7 @@ routes.get('/',requiresAuth(), (req, res) => {
         res.redirect('/login');
     }
     });
+
 // get reminder by id
 routes.get('/:id', requiresAuth(), (req, res, next) => {
     if (req.oidc.isAuthenticated()){
@@ -22,6 +23,7 @@ routes.get('/:id', requiresAuth(), (req, res, next) => {
         res.redirect('/login');
     }
 });
+
 // post new reminder
 routes.post('/', requiresAuth(), reminderValidation.checkReminderSchema, (req, res) => {
     if(req.oidc.isAuthenticated()) {

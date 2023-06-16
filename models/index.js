@@ -28,6 +28,9 @@ const reminderSchema = new mongoose.Schema(
         friend: {
             type: Boolean,
             required: false
+        },
+        user: {
+            required: false
         }
 
     }
