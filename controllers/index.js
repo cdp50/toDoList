@@ -5,6 +5,8 @@ const createError = require('http-errors');
 
 const controller = {}
 
+
+
 // GET ALL reminderS
 controller.getAllReminders = async(req, res) => {
     try {
