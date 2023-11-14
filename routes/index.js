@@ -17,7 +17,7 @@ routes.use(auth(config));
 
 // req.isAuthenticated is provided from the auth router
 routes.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? res.redirect('/api-docs') : '/login');
+  res.send(req.oidc.isAuthenticated() ? res.redirect('/api-docs') : res.redirect('/login'));
 });
 
 
