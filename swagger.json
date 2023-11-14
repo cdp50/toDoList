@@ -11,27 +11,9 @@
     "https"
   ],
   "paths": {
-    "/": {
+    "/toDoList/": {
       "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/reminders/": {
-      "get": {
-        "description": "",
+        "description": "Shows all the todo lists that you have",
         "parameters": [],
         "responses": {
           "200": {
@@ -43,7 +25,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "creates a new to do list and saves it into MongoDB",
         "parameters": [
           {
             "name": "body",
@@ -93,9 +75,9 @@
         }
       }
     },
-    "/reminders/{id}": {
+    "/toDoList/{id}": {
       "get": {
-        "description": "",
+        "description": "retrieves the specific list attached to the ID provided",
         "parameters": [
           {
             "name": "id",
@@ -123,7 +105,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "edit the specific list attached to the ID provided",
         "parameters": [
           {
             "name": "id",
@@ -182,7 +164,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "deletes the specific list attached to the ID provided",
         "parameters": [
           {
             "name": "id",
@@ -212,7 +194,7 @@
     },
     "/users/": {
       "post": {
-        "description": "",
+        "description": "creates a new user and saves it into MongoDB",
         "parameters": [
           {
             "name": "body",
@@ -248,7 +230,7 @@
       }},
       "/users/{id}": {
       "delete": {
-        "description": "",
+        "description": "deletes the specific user attached to the ID provided",
         "parameters": [
           {
             "name": "id",
